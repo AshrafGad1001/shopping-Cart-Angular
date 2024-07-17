@@ -38,4 +38,32 @@
         </div>
     </div>
     <!--Category Box End-->
+
+
+
+    <!--Show Product start-->
+    <!--Show Appliance Product -->
+    <div class="container mt-3 mb-3">
+        <div class="row productBox">
+            <p>
+                <a class="float-start link-offset-3" routerLink="">Best Of Appliance</a>
+                <a class="float-end" routerLink=""><i class="fa-solid fa-circle-arrow-right"></i></a>
+            </p>
+            <div class="col-lg-3 mt-3" *ngFor="let data of getApplianceProductData; index as i">
+                <a routerLink="" class="productLink">
+                    <div class="productContent" *ngIf="i<4">
+                        <div class="productImg">
+                            <img src="{{data.pdImg}}" alt="{{data.pdName}}">
+                        </div>
+                        <h4>{{data.pdName}}</h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!--Show Appliance Product -->
+    <!--Show Product End-->
+
+
 </main>

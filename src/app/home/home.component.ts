@@ -32,11 +32,16 @@ export class HomeComponent implements OnInit {
 
 
   getCategoryData: any;
-  constructor(private getData: GetDataService) {
-
+  getApplianceProductData: any = [];
+  constructor(private _getData: GetDataService) {
   }
   ngOnInit(): void {
-    this.getCategoryData = this.getData.categoriesData;
+    this.getCategoryData = this._getData.categoriesData;
+    this._getData.productData.filter((ele: any) => {
+      if (ele.pdCategory == 'appliances') {
+        this.getApplianceProductData.push(ele);
+      }
+    });
   }
 
 
