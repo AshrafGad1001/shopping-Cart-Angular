@@ -8,7 +8,8 @@
             <p>Category : {{getParamValue | titlecase}}</p>
             <p>SubCategory</p>
             <div class="col-lg-4">
-                <select class="form-select form-select-sm">
+                <select class="form-select form-select-sm" (change)="filterSelect($event)">
+                    <option value="all">All</option>
                     <option *ngFor="let data of getSubCategoryOptions" value="{{data.subcategories}}">
                         {{data.subcategories}}
                     </option>

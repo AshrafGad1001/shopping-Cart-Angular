@@ -38,7 +38,22 @@ export class ProductPageComponent implements OnInit {
         this.getSubCategoryOptions.push(ele);
       }
     });
+  }
 
 
+  filterSelect(data: any) {
+    this.FilterProductsData = [];
+    var getFilterValue: any = data.target.value;
+
+    if (getFilterValue != 'all') {
+      this._getData.productData.filter((ele: any) => {
+        if (ele.pdSubCategory == getFilterValue) {
+          this.FilterProductsData.push(ele);
+        }
+      });
+    }
+    else {
+      this.FilterProductsData = this.getProductData;
+    }
   }
 }
