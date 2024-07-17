@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 
 
-<main class="container">
+<main class="container-fluid p-0">
 
     <!--Banner Start-->
     <div id="carouselExampleAutoplaying" class="carousel slide bg-dark" data-bs-ride="carousel">
@@ -25,4 +25,17 @@
     </div>
     <!--Banner End-->
 
+    <!--Category Box Start-->
+    <div class="container mt-5 mb-5">
+        <h4 class="text-center">Main Categories</h4>
+        <div class="row categoriesBox">
+            <div class="col-lg-3 col-6 categoriesContent" *ngFor="let data of getCategoryData">
+                <a>
+                    <img src="{{data.img}}">
+                    <h4>{{data.name}}</h4>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!--Category Box End-->
 </main>

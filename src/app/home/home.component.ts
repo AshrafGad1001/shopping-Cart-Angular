@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from "../navbar/navbar.component";
+import { GetDataService } from '../service/get-data.service';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,8 @@ import { NavbarComponent } from "../navbar/navbar.component";
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+
   BannerImages = [
     {
       id: 1,
@@ -25,4 +27,18 @@ export class HomeComponent {
       img: 'assets/images/banner/3.jpg',
     },
   ];
+
+
+
+
+  getCategoryData: any;
+  constructor(private getData: GetDataService) {
+
+  }
+  ngOnInit(): void {
+    this.getCategoryData = this.getData.categoriesData;
+  }
+
+
+
 }
