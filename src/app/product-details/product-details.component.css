@@ -1,0 +1,17 @@
+.productBox {
+  background-color: hsl(0, 0%, 100%);
+  padding: 50px 50px;
+}
+.productBox img {
+  width: 90%;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+@media screen and (max-width: 600px) {
+  .productBox img {
+    width: 100%;
+  }
+}

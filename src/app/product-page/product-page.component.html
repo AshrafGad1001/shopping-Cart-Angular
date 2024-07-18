@@ -2,12 +2,12 @@
 
 <main class="container-fluid mt-5 mb-5">
     <div class="row pageBox">
-        <div class="col-lg-4">
+        <div class="col-lg-4  col-12">
             <!--Filter-->
             <p>Filter</p>
             <p>Category : {{getParamValue | titlecase}}</p>
             <p>SubCategory</p>
-            <div class="col-lg-4">
+            <div class="col-lg-4  col-12">
                 <select class="form-select form-select-sm" (change)="filterSelect($event)">
                     <option value="all">All</option>
                     <option *ngFor="let data of getSubCategoryOptions" value="{{data.subcategories}}">
@@ -16,17 +16,18 @@
                 </select>
             </div>
         </div>
-        <div class="col-lg-8">
+        <div class="col-lg-8 col-12">
             <!--Product Content-->
             <div class="row pageContent mt-5" *ngFor="let Data of FilterProductsData">
-                <div class="col-lg-4">
+                <div class="col-lg-4 col-12 mt-3">
                     <img src="{{Data.pdImg}}" alt="{{Data.pdName}}">
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-8 col-12 mt-3">
                     <h4>{{Data.pdName}}</h4>
                     <p class="desc">{{Data.pdDesc}}</p>
                     <p> <span class="fw-medium"><i class="fa-solid fa-coins"></i></span> {{Data.pdPrice}}</p>
-                    <a class="btn btn-sm btn-dark">View Product <i class="fa-solid fa-circle-arrow-right"></i></a>
+                    <a class="btn btn-sm btn-dark" [routerLink]="['/product-detail',Data.pdCategory,Data.pdId]">View
+                        Product <i class="fa-solid fa-circle-arrow-right"></i></a>
                 </div>
             </div>
         </div>
