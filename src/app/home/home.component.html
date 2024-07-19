@@ -46,11 +46,12 @@
     <div class="container mt-3 mb-3">
         <div class="row productBox">
             <p>
-                <a class="float-start link-offset-3" routerLink="">Best Of Appliance</a>
-                <a class="float-end" routerLink=""><i class="fa-solid fa-circle-arrow-right"></i></a>
+                <a class="float-start link-offset-3" [routerLink]="['/product-page','appliances']">Best Of Appliance</a>
+                <a class="float-end" [routerLink]="['/product-page','appliances']"><i
+                        class="fa-solid fa-circle-arrow-right"></i></a>
             </p>
             <div class="col-lg-3 mt-3" *ngFor="let data of getApplianceProductData; index as i">
-                <a routerLink="" class="productLink">
+                <a [routerLink]="['/product-detail',data.pdCategory,data.pdId]" class="productLink">
                     <div class="productContent" *ngIf="i<4">
                         <div class="productImg">
                             <img src="{{data.pdImg}}" alt="{{data.pdName}}">
