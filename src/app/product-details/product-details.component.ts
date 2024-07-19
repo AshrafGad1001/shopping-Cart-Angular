@@ -1,7 +1,7 @@
 import { DataStorageService } from './../service/data-storage.service';
 import { NavbarComponent } from './../navbar/navbar.component';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GetDataService } from '../service/get-data.service';
@@ -13,9 +13,10 @@ import { GetDataService } from '../service/get-data.service';
   styleUrl: './product-details.component.css',
 })
 export class ProductDetailsComponent implements OnInit {
-  constructor(private route: ActivatedRoute,
+  constructor(private _route: ActivatedRoute,
     private _getData: GetDataService
-    , private _dataStorage: DataStorageService) { }
+    , private _dataStorage: DataStorageService
+    , private _router: Router) { }
 
   getParamValue: any;
   getProductDetails: any;
@@ -23,7 +24,7 @@ export class ProductDetailsComponent implements OnInit {
   inCart: boolean = false;
 
   ngOnInit(): void {
-    this.getParamValue = this.route.snapshot.paramMap.get('id');
+    this.getParamValue = this._route.snapshot.paramMap.get('id');
 
     this.storeCartData = this._dataStorage.getCartData();
 
@@ -44,6 +45,6 @@ export class ProductDetailsComponent implements OnInit {
   addCart(data: any) {
     this.storeCartData.push(data);
     this._dataStorage.storeCartData(this.storeCartData);
-
+    this._router.navigate(['/cart']);
   }
 }

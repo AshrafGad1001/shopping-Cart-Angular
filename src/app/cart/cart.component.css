@@ -1,0 +1,12 @@
+.cartBox {
+  padding: 50px 50px;
+  background-color: #fff;
+}
+.cartBox img {
+  width: 90%;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}

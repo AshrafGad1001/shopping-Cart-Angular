@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+
+
+<main class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-lg-8 cartBox" *ngFor="let data of getCartData">
+            <!--Cart Content-->
+
+            <div class="row">
+                <div class="col-lg-4">
+                    <img src="{{data.pdImg}}">
+                </div>
+                <div class="col-lg-8">
+                    <h4>{{data.pdName}}</h4>
+                    <!-- <p>{{data.pdDesc}}</p> -->
+                    <p class="mt-2 mb-3"><i class="fa-solid fa-coins mx-2"></i>{{data.pdPrice}}</p>
+
+                    <button class="btn btn-sm btn-danger text-bold" (click)="removeCart(data)"><i
+                            class="fa-solid fa-trash me-2"></i>Remove</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <!--Price Content-->
+        </div>
+    </div>
+</main>
