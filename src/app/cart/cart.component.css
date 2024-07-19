@@ -10,3 +10,20 @@
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
 }
+.price-box {
+  padding: 30px 30px;
+  background-color: #fff;
+}
+.EmptyCart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.EmptyCart img {
+  width: 50%;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
