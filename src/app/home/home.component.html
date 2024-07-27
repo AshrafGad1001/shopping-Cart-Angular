@@ -42,6 +42,8 @@
 
 
     <!--Show Product start-->
+
+
     <!--Show Appliance Product -->
     <div class="container mt-3 mb-3">
         <div class="row productBox">
@@ -64,6 +66,85 @@
     </div>
 
     <!--Show Appliance Product -->
+
+
+
+
+    <!--Show fashion Product -->
+    <div class="container mt-3 mb-3">
+        <div class="row productBox">
+            <p>
+                <a class="float-start link-offset-3" [routerLink]="['/product-page','fashion']">Best Of Fashion</a>
+                <a class="float-end" [routerLink]="['/product-page','fashion']"><i
+                        class="fa-solid fa-circle-arrow-right"></i></a>
+            </p>
+            <div class="col-lg-3 mt-3" *ngFor="let data of getFashionProductData; index as i">
+                <a [routerLink]="['/product-detail',data.pdCategory,data.pdId]" class="productLink">
+                    <div class="productContent" *ngIf="i<4">
+                        <div class="productImg">
+                            <img src="{{data.pdImg}}" alt="{{data.pdName}}">
+                        </div>
+                        <h4>{{data.pdName}}</h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!--Show fashion Product -->
+
+
+
+
+    <!--Show homeandfurniture Product -->
+    <div class="container mt-3 mb-3">
+        <div class="row productBox">
+            <p>
+                <a class="float-start link-offset-3" [routerLink]="['/product-page','homeandfurniture']">Best Of Home
+                    and Furniture</a>
+                <a class="float-end" [routerLink]="['/product-page','homeandfurniture']"><i
+                        class="fa-solid fa-circle-arrow-right"></i></a>
+            </p>
+            <div class="col-lg-3 mt-3" *ngFor="let data of gethomeandfurnitureData; index as i">
+                <a [routerLink]="['/product-detail',data.pdCategory,data.pdId]" class="productLink">
+                    <div class="productContent" *ngIf="i<4">
+                        <div class="productImg">
+                            <img src="{{data.pdImg}}" alt="{{data.pdName}}">
+                        </div>
+                        <h4>{{data.pdName}}</h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!--Show homeandfurniture Product -->
+
+
+
+    <!--Show toys Product -->
+    <div class="container mt-3 mb-3">
+        <div class="row productBox">
+            <p>
+                <a class="float-start link-offset-3" [routerLink]="['/product-page','toys']">Best Of toys</a>
+                <a class="float-end" [routerLink]="['/product-page','toys']"><i
+                        class="fa-solid fa-circle-arrow-right"></i></a>
+            </p>
+            <div class="col-lg-3 mt-3" *ngFor="let data of gettoysData; index as i">
+                <a [routerLink]="['/product-detail',data.pdCategory,data.pdId]" class="productLink">
+                    <div class="productContent" *ngIf="i<4">
+                        <div class="productImg">
+                            <img src="{{data.pdImg}}" alt="{{data.pdName}}">
+                        </div>
+                        <h4>{{data.pdName}}</h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!--Show toys Product -->
+
     <!--Show Product End-->
 
 

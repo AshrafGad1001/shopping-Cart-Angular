@@ -28,10 +28,12 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCartData = this._dataStorage.getCartData() || [];
-    this.numOfProductInCart = this.getCartData.length;
-    this.getCartData.filter((ele: any) => {
-      this.totalAmount = (ele.pdPrice * ele.plusMinusCounter) + this.totalAmount;
-    });
+    this.numOfProductInCart = this.getCartData ? this.getCartData.length : 0;
+    if (this.getCartData) {
+      this.getCartData.filter((ele: any) => {
+        this.totalAmount = (ele.pdPrice * ele.plusMinusCounter) + this.totalAmount;
+      });
+}
   }
 
 

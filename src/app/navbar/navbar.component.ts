@@ -16,7 +16,8 @@ export class NavbarComponent implements OnInit {
   @Input() cartCount: number = 0;
 
   ngOnInit(): void {
-    this.cartCount = this._dataStorage.getCartData().length;
+    var getVal = this._dataStorage.getCartData();
+    this.cartCount = getVal ? getVal.length : 0;
   }
 
 }

@@ -35,6 +35,11 @@ export class HomeComponent implements OnInit {
 
   getCategoryData: any;
   getApplianceProductData: any = [];
+  getFashionProductData: any = [];
+  gethomeandfurnitureData: any = [];
+  gettoysData: any = [];
+
+
   constructor(private _getData: GetDataService) {
   }
   ngOnInit(): void {
@@ -42,6 +47,17 @@ export class HomeComponent implements OnInit {
     this._getData.productData.filter((ele: any) => {
       if (ele.pdCategory == 'appliances') {
         this.getApplianceProductData.push(ele);
+      }
+
+      if (ele.pdCategory == 'fashion') {
+        this.getFashionProductData.push(ele);
+      }
+      if (ele.pdCategory == 'homeandfurniture') {
+        this.gethomeandfurnitureData.push(ele);
+      }
+
+      if (ele.pdCategory == 'toys') {
+        this.gettoysData.push(ele);
       }
     });
   }
