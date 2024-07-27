@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<app-navbar>[cartCount]="numOfProductInCart"</app-navbar>
 
 
 <main class="container mt-5 mb-5 ">
@@ -9,7 +9,7 @@
         <div *ngIf="numOfProductInCart==0" class="col-lg-8  EmptyCart mt-5 mb-3">
             <img src="../assets/images/EmptyCart.png" alt="">
         </div>
-        <div *ngIf="numOfProductInCart!=0" class="col-lg-8 cartBox">
+        <div *ngIf="numOfProductInCart!=0" class="col-lg-8  col-12 cartBox">
             <!--Cart Content-->
 
             <div class="row mt-2 mb-3" *ngFor="let data of getCartData">
@@ -18,16 +18,27 @@
                 </div>
                 <div class="col-lg-8">
                     <h4>{{data.pdName}}</h4>
-                    <p>{{data.pdDesc}}</p>
+                    <!-- <p>{{data.pdDesc}}</p> -->
                     <p class="mt-2 mb-3"><i class="fa-solid fa-coins mx-2"></i>{{data.pdPrice}}</p>
 
                     <button class="btn btn-sm btn-danger fw-bold" (click)="removeCart(data)"><i
                             class="fa-solid fa-trash me-2"></i>Remove</button>
+
+                    <div class="mt-2 mb-2">
+                        <button class="btn btn-sm btn-dark" [disabled]="data.plusMinusCounter>1?false:true"
+                            (click)="plusMinusCount(data,'minus')">-
+                        </button>
+                        &nbsp;
+                        <input type="number" class="col-lg-1 Num-productCart" value="{{data.plusMinusCounter}}"
+                            disabled>&nbsp;
+                        <button class="btn btn-sm btn-dark" [disabled]="data.plusMinusCounter>=10?true:false"
+                            (click)="plusMinusCount(data,'plus')">+</button>
+                    </div>
                 </div>
                 <hr class="mt-3">
             </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-12 mt-4 ">
             <div class="price-box">
                 <h5 class="fw-bold">price Details</h5>
                 <hr>

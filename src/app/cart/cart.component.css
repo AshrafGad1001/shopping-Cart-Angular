@@ -27,3 +27,11 @@
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
 }
+.Num-productCart {
+  min-width: 100px;
+}
+@media screen and (max-width: 600px) {
+  .cartBox img {
+    width: 70%;
+  }
+}

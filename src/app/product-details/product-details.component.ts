@@ -5,10 +5,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GetDataService } from '../service/get-data.service';
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [NavbarComponent, CommonModule],
+  imports: [NavbarComponent, CommonModule, RouterModule],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.css',
 })
@@ -43,6 +44,7 @@ export class ProductDetailsComponent implements OnInit {
 
   }
   addCart(data: any) {
+    data['plusMinusCounter'] = 1;
     this.storeCartData.push(data);
     this._dataStorage.storeCartData(this.storeCartData);
     this._router.navigate(['/cart']);

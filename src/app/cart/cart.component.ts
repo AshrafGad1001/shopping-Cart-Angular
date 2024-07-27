@@ -50,4 +50,39 @@ export class CartComponent implements OnInit {
     this.getCartData = this._dataStorage.getCartData() || [];
     this.numOfProductInCart = this.getCartData.length;
   }
+
+  plusMinusCount(data: any, type: any) {
+    this.storeCartArray = [];
+    this.totalAmount = 0;
+    var plusMinusValue = data.plusMinusCounter;
+
+    if (type == 'minus') {
+      let minusCount = plusMinusValue - 1;
+      this.getCartData.filter((ele: any) => {
+        if (data.pdId == ele.pdId) {
+          ele['plusMinusCounter'] = minusCount;
+        }
+        this.totalAmount = (ele.pdPrice * ele.plusMinusCounter) + this.totalAmount;
+      });
+
+      this.storeCartArray = this.getCartData;
+      this._dataStorage.storeCartData(this.storeCartArray);
+      this.getCartData = this._dataStorage.getCartData();
+    }
+
+    if (type == 'plus') {
+      let plusCount = plusMinusValue + 1;
+      this.getCartData.filter((ele: any) => {
+        if (data.pdId == ele.pdId) {
+          ele['plusMinusCounter'] = plusCount;
+        }
+        this.totalAmount = (ele.pdPrice * ele.plusMinusCounter) + this.totalAmount;
+      });
+
+      this.storeCartArray = this.getCartData;
+      this._dataStorage.storeCartData(this.storeCartArray);
+      this.getCartData = this._dataStorage.getCartData();
+    }
+
+  }
 }
