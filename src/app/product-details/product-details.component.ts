@@ -27,7 +27,11 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.getParamValue = this._route.snapshot.paramMap.get('id');
 
-    this.storeCartData = this._dataStorage.getCartData();
+
+
+    var getVal = this._dataStorage.getCartData();
+
+    this.storeCartData = getVal ? getVal : [];
 
     this.storeCartData.filter((ele: any) => {
       if (ele.pdId == this.getParamValue) {

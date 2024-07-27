@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './../navbar/navbar.component';
 import { DataStorageService } from '../service/data-storage.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-cart',
   standalone: true,
@@ -15,7 +16,7 @@ export class CartComponent implements OnInit {
 
 
 
-  constructor(private _dataStorage: DataStorageService) {
+  constructor(private _dataStorage: DataStorageService, private _router: Router) {
   }
 
 
@@ -29,7 +30,7 @@ export class CartComponent implements OnInit {
     this.getCartData = this._dataStorage.getCartData() || [];
     this.numOfProductInCart = this.getCartData.length;
     this.getCartData.filter((ele: any) => {
-      this.totalAmount = ele.pdPrice + this.totalAmount;
+      this.totalAmount = (ele.pdPrice * ele.plusMinusCounter) + this.totalAmount;
     });
   }
 
@@ -84,5 +85,10 @@ export class CartComponent implements OnInit {
       this.getCartData = this._dataStorage.getCartData();
     }
 
+  }
+
+  orderClick() {
+    localStorage.removeItem('cart-data');
+    this._router.navigate(['/']);
   }
 }
