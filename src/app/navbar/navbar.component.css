@@ -1,22 +1,36 @@
 .brand {
   font-size: 30px;
   font-weight: bold;
-  color: #000;
+  color: #004181;
   text-decoration: none;
   padding: 0px 30px;
 }
 .link {
   font-size: 18px;
   text-decoration: none;
-  color: #000;
+  color: #004181;
   padding: 0px 10px;
   font-weight: 400;
 }
 .link:hover {
   color: rgb(38, 88, 90);
 }
+.logo-img {
+  height: 60px;
+}
+
 @media screen and (max-width: 600px) {
+  .brand-container {
+    display: flex;
+    justify-content: center;
+  }
+
   .brand {
     padding: 0px 10px;
+  }
+  .nav-element {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 }
